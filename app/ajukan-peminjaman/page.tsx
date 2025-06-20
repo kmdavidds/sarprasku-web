@@ -7,6 +7,7 @@ import { LoanRequestForm } from "@/components/loan-request-form"
 import { NavigationProvider } from "@/contexts/navigation-context"
 import { RecordModel } from "pocketbase"
 import { getFacilities } from "@/lib/pocketbase"
+import { Spinner } from "@/components/spinner"
 
 function AjukanPeminjamanContent({rooms}: any) {
   const [selectedRoom, setSelectedRoom] = useState<any>(null)
@@ -42,8 +43,7 @@ export default function AjukanPeminjaman() {
     setLoading(false);
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No data</p>;
+  if (isLoading) return <Spinner />;
 
   return (
     <NavigationProvider>

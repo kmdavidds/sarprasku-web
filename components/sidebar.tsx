@@ -47,7 +47,7 @@ export function Sidebar({ onNavClick }: SidebarProps) {
     <div className="h-full bg-blue-900 text-white flex flex-col">
       <div className="p-4 lg:p-6">
         <div className="text-sm text-blue-200 mb-1">Layanan Sarana Prasarana</div>
-        <div className="text-xl lg:text-2xl font-bold">SARPRASKU</div>
+        <div className="text-xl lg:text-2xl font-bold">SARPRAS<span className="text-orange-400">KU</span></div>
       </div>
 
       <nav className="flex-1 px-2 lg:px-4">

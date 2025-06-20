@@ -9,6 +9,7 @@ import { DataTable } from "@/components/data-table";
 import { NavigationProvider } from "@/contexts/navigation-context";
 import { getBorrowings } from "@/lib/pocketbase";
 import { statsData } from "@/components/stats-data";
+import { Spinner } from "@/components/spinner";
 
 function DashboardContent({ data }: any) {
   const [filteredData, setFilteredData] = useState(data);
@@ -105,8 +106,7 @@ export default function Dashboard() {
     setLoading(false);
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No data</p>;
+  if (isLoading) return <Spinner />;
 
   return (
     <NavigationProvider>

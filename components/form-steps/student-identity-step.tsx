@@ -60,6 +60,7 @@ export function StudentIdentityStep({ data, onChange }: StudentIdentityStepProps
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="teknik-informatika">Teknik Informatika</SelectItem>
+              <SelectItem value="teknik-komputer">Teknik Komputer</SelectItem>
               <SelectItem value="sistem-informasi">Sistem Informasi</SelectItem>
               <SelectItem value="teknologi-informasi">Teknologi Informasi</SelectItem>
               <SelectItem value="pendidikan-teknologi-informasi">Pendidikan Teknologi Informasi</SelectItem>

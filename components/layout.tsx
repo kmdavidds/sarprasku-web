@@ -1,44 +1,44 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sidebar } from "./sidebar"
-import { Header } from "./header"
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sidebar } from "./sidebar";
+import { Header } from "./header";
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function Layout({ children }: LayoutProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Close sidebar when screen size changes to prevent issues on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setSidebarOpen(false)
+        setSidebarOpen(false);
       }
-    }
+    };
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Prevent scrolling when mobile sidebar is open
   useEffect(() => {
     if (sidebarOpen) {
-      document.body.classList.add("overflow-hidden")
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList.remove("overflow-hidden")
+      document.body.classList.remove("overflow-hidden");
     }
 
     return () => {
-      document.body.classList.remove("overflow-hidden")
-    }
-  }, [sidebarOpen])
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [sidebarOpen]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -46,10 +46,17 @@ export function Layout({ children }: LayoutProps) {
       <div className="lg:hidden">
         <div className="bg-white border-b px-4 py-3 flex items-center justify-between">
           <div className="flex items-center">
-            <Button variant="ghost" size="icon" onClick={() => setSidebarOpen(true)} aria-label="Open menu">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setSidebarOpen(true)}
+              aria-label="Open menu"
+            >
               <Menu className="h-6 w-6" />
             </Button>
-            <div className="ml-3 text-lg font-semibold text-blue-900">SARPRASKU</div>
+            <div className="ml-3 text-lg font-semibold text-blue-900">
+              SARPRAS<span className="text-orange-500">KU</span>
+            </div>
           </div>
           <Header isMobile={true} />
         </div>
@@ -72,7 +79,9 @@ export function Layout({ children }: LayoutProps) {
       `}
       >
         <div className="flex justify-between items-center p-4 border-b border-blue-800">
-          <div className="text-xl font-bold text-white">SARPRASKU</div>
+          <div className="text-xl font-bold text-white">
+            SARPRAS<span className="text-orange-500">KU</span>
+          </div>
           <Button
             variant="ghost"
             size="icon"
@@ -105,5 +114,5 @@ export function Layout({ children }: LayoutProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
